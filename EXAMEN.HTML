@@ -1,0 +1,107 @@
+<script>
+    var Laptop1 = "Laptop1 disponible codigo=111 cantidad=1";
+    var Laptop2 = "Laptop2 disponible codigo=112 cantidad=1";
+    var Laptop3 = "Laptop3 disponible codigo=113 cantidad=1";
+    var Laptop4 = "Laptop4 disponible codigo=114 cantidad=1";
+    var Laptop5 = "Laptop5 disponible codigo=115 cantidad=1";
+
+    var Laptop11 = "Laptop1 codigo=111 cantidad=1";
+    var Laptop22 = "Laptop2 codigo=112 cantidad=1";
+    var Laptop33 = "Laptop3 codigo=113 cantidad=1";
+    var Laptop44 = "Laptop4 codigo=114 cantidad=1";
+    var Laptop55 = "Laptop5 codigo=115 cantidad=1";
+    var i = 0;
+    var matriculas = [];
+    var equipos = ["Laptop1 codigo=111 cantidad=1", "Laptop2 codigo=112 cantidad=1", "Laptop3 codigo=113 cantidad=1", "Laptop4 codigo=114 cantidad=1", "Laptop5 codigo=115 cantidad=1"];
+    var prestamos = [];
+    var almacen = [];
+
+    while (i < 1) {
+        var casos = parseInt(prompt("QUE CASO DESEAS HACER?"));
+
+        switch (casos) {
+            case 1:
+                var usuario = parseInt(prompt("INGRESE SU MATRICULA ESCOLAR PARA REGISTRARSE"));
+                var patito = verificar(matriculas, usuario);
+                if (patito == "si") {
+                    console.log("YA TIENE EQUIPO ASIGNADO");
+                } else {
+                    matriculas.push(usuario);
+                    if (Laptop1 == "Laptop1 disponible codigo=111 cantidad=1") {
+                        var Laptop1 = "Laptop1 ocupado codigo=111 cantidad=1";
+                        prestamos.push(Laptop11);
+                        break;
+
+                    } else if (Laptop2 == "Laptop2 disponible codigo=112 cantidad=1") {
+                        var Laptop2 = "Laptop2 ocupado codigo=112 cantidad=1";
+                        prestamos.push(Laptop22);
+                        break;
+
+                    } else if (Laptop3 == "Laptop3 disponible codigo=113 cantidad=1") {
+                        var Laptop3 = "Laptop3 ocupado codigo=113 cantidad=1";
+                        prestamos.push(Laptop33);
+                        break;
+
+                    } else if (Laptop4 == "Laptop4 disponible codigo=114 cantidad=1") {
+                        var Laptop4 = "Laptop4 ocupado codigo=114 cantidad=1";
+                        prestamos.push(Laptop44);
+                        break;
+
+                    } else if (Laptop5 == "Laptop5 disponible codigo=115 cantidad=1") {
+                        var Laptop5 = "Laptop5 ocupado codigo=115 cantidad=1";
+                        prestamos.push(Laptop55);
+                        break;
+                    } else {
+                        console.log("TODOS LOS EQUIPOS ESTAN OCUPADOS");
+                        break;
+                    }
+                }
+
+                break;
+
+            case 2:
+                console.log("LOS EQUIPOS EN PRESTAMOS SON: " + prestamos);
+
+                break;
+
+            case 3:
+                var pedir = prompt("PARA BUSCAR UN PRESTAMO, INGRESE MATRICULA");
+                for (h = 0; h < prestamos.length; h++) {
+                    if (pedir == matriculas[h]) {
+                        console.log("EL ALUMNO CON LA MATRICULA" + " " + matriculas[h] + " " + "TIENE LA " + " " + prestamos[h]);
+                    }
+                }
+
+                break;
+
+            case 4:
+                console.log("LOS EQUIPOS PRESTADOS SON " + prestamos);
+                for (k = 0; k < equipos.length; k++) {
+                    if (prestamos[k] != equipos[k]) {
+                        almacen.push(equipos[k]);
+                    }
+                }
+                console.log("LOS EQUIPOS EN ALMACEN SON " + almacen);
+                break;
+
+            case 5:
+                i++;
+                break;
+
+                i = 0;
+        }
+
+    }
+
+    function verificar(m, s) {
+        let y = "si";
+        let z = "no";
+        for (o = -1; o < m.length; o++) {
+            if (s == m[o]) {
+                return y;
+            }
+        }
+        return z;
+    }
+
+</script>
